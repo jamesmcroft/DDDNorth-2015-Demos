@@ -49,7 +49,9 @@
         <SplitView x:Name="SplitViewMenu"
                    DisplayMode="Inline"
                    OpenPaneLength="256"
-                   IsTabStop="False">
+                   IsTabStop="False"
+                   PaneBackground="{StaticResource AccentColorBrush}"
+                   RequestedTheme="Dark">
             <SplitView.Pane>
                 <controls:SplitViewNavigationListView x:Name="SplitViewMenuList"
                                           TabIndex="3"
