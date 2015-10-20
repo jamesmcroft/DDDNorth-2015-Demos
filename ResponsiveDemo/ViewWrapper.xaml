@@ -1,0 +1,95 @@
+﻿<Page
+    x:Name="PageRoot"
+    x:Class="ResponsiveDemo.ViewWrapper"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:common="using:ResponsiveDemo.Common"
+    xmlns:controls="using:ResponsiveDemo.Controls"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <DataTemplate x:Key="SplitViewMenuItemTemplate" x:DataType="common:SplitViewMenuItem">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="48" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <FontIcon x:Name="Glyph" FontSize="16" Glyph="{x:Bind SymbolAsChar}" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTipService.ToolTip="{x:Bind Label}"/>
+                <TextBlock x:Name="Text" Grid.Column="1" Text="{x:Bind Label}" />
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+
+    <Grid>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="720" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="SplitViewMenu.DisplayMode" Value="CompactInline"/>
+                        <Setter Target="SplitViewMenu.IsPaneOpen" Value="True"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="SplitViewMenu.DisplayMode" Value="Overlay"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <SplitView x:Name="SplitViewMenu"
+                   DisplayMode="Inline"
+                   OpenPaneLength="256"
+                   IsTabStop="False">
+            <SplitView.Pane>
+                <controls:SplitViewNavigationListView x:Name="SplitViewMenuList"
+                                          TabIndex="3"
+                                          Margin="0,48,0,0"
+                                          ContainerContentChanging="OnSplitViewMenuContainerContentChanging"
+                                          ItemContainerStyle="{StaticResource SplitViewMenuItemContainerStyle}"
+                                          ItemTemplate="{StaticResource SplitViewMenuItemTemplate}"
+                                          ItemInvoked="OnSplitViewMenuItemInvoked">
+                    <controls:SplitViewNavigationListView.Header>
+                        <Button x:Name="BackButton"
+                                TabIndex="2"
+                                Style="{StaticResource NavigationBackButtonStyle}"
+                                IsEnabled="{Binding ContentFrame.CanGoBack, ElementName=PageRoot}"
+                                Width="{Binding ItemsPanelRoot.Width, ElementName=SplitViewMenuList}"
+                                HorizontalAlignment="{Binding ItemsPanelRoot.HorizontalAlignment, ElementName=SplitViewMenuList}"
+                                Click="OnBackButtonClick"/>
+                    </controls:SplitViewNavigationListView.Header>
+                </controls:SplitViewNavigationListView>
+            </SplitView.Pane>
+
+            <Frame x:Name="PageFrame"
+                   Navigating="OnFrameNavigating"
+                   Navigated="OnFrameNavigated">
+                <Frame.ContentTransitions>
+                    <TransitionCollection>
+                        <NavigationThemeTransition>
+                            <NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                                <EntranceNavigationTransitionInfo/>
+                            </NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                        </NavigationThemeTransition>
+                    </TransitionCollection>
+                </Frame.ContentTransitions>
+            </Frame>
+        </SplitView>
+
+        <ToggleButton x:Name="HamburgerButton"
+                      TabIndex="1"
+                      Style="{StaticResource SplitViewTogglePaneButtonStyle}"
+                      IsChecked="{Binding IsPaneOpen, ElementName=SplitViewMenu, Mode=TwoWay}"
+                      Unchecked="OnHamburgerButtonUnchecked"
+                      ToolTipService.ToolTip="Menu" />
+    </Grid>
+</Page>
