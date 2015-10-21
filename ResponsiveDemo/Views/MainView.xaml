@@ -4,9 +4,36 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    xmlns:maps="using:Windows.UI.Xaml.Controls.Maps"
+    xmlns:controls="using:ResponsiveDemo.Controls"
+    mc:Ignorable="d"
+    RequestedTheme="Light">
 
     <RelativePanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <controls:PageHeader x:Name="Header" Background="{StaticResource AccentColorBrush}" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
+            <controls:PageHeader.HeaderContent>
+                <TextBlock Text="ActivRun" Foreground="#99FFFFFF" Style="{ThemeResource PageTitleTextBlockStyle}" />
+            </controls:PageHeader.HeaderContent>
+        </controls:PageHeader>
+        <maps:MapControl x:Name="Map" RelativePanel.Below="Header" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" Height="250" />
+        
+        <Grid x:Name="HeroBar" RequestedTheme="Dark" Background="{StaticResource AccentColorBrush}" RelativePanel.Below="Map" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            
+            <StackPanel Margin="12,6,0,6" VerticalAlignment="Bottom">
+                <TextBlock Text="Latest run" FontSize="14" Style="{StaticResource LightTextBlockStyle}" />
+                <TextBlock Text="5.4 miles" FontSize="30" Style="{StaticResource LightTextBlockStyle}" />
+            </StackPanel>
+            
+            <TextBlock Grid.Column="1" VerticalAlignment="Bottom" Margin="0,6" Text="0.72h" FontSize="30" Style="{StaticResource LightTextBlockStyle}" />
+        </Grid>
 
+        <RelativePanel x:Name="Stats" RelativePanel.Below="HeroBar" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
+            
+        </RelativePanel>
     </RelativePanel>
 </Page>

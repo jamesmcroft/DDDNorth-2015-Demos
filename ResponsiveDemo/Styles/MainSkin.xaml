@@ -5,6 +5,9 @@
     <Color x:Key="AccentColor">#FF2196F3</Color>
     <SolidColorBrush x:Key="AccentColorBrush" Color="{StaticResource AccentColor}" />
 
+    <FontFamily x:Key="CustomFont">/Fonts/custom-font.ttf#Pan Pizza</FontFamily>
+    
+    
     <Style x:Key="SplitViewTogglePaneButtonStyle" TargetType="ToggleButton">
         <Setter Property="FontSize" Value="20" />
         <Setter Property="FontFamily" Value="{ThemeResource SymbolThemeFontFamily}" />
@@ -96,14 +99,18 @@
             </Setter.Value>
         </Setter>
     </Style>
+    
+    <Style x:Key="LightTextBlockStyle" TargetType="TextBlock" BasedOn="{StaticResource BodyTextBlockStyle}">
+        <Setter Property="FontWeight" Value="Light" />
+    </Style>
 
     <Style x:Key="PageTitleTextBlockStyle" TargetType="TextBlock" BasedOn="{StaticResource BodyTextBlockStyle}">
-        <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="TextWrapping" Value="NoWrap"/>
-        <Setter Property="CharacterSpacing" Value="75"/>
-        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
-        <Setter Property="Margin" Value="12, 14, 12, 4"/>
+        <Setter Property="Margin" Value="0,5,0,0" />
+        <Setter Property="FontFamily" Value="{StaticResource CustomFont}" />
+        <Setter Property="FontSize" Value="36"></Setter>
     </Style>
 
     <Style x:Key="NavigationBackButtonStyle" TargetType="Button" BasedOn="{StaticResource NavigationBackButtonNormalStyle}">
