@@ -44,8 +44,11 @@ namespace ResponsiveDemo.Controls
 
         private void OnLoaded(object o, RoutedEventArgs e)
         {
-            ViewWrapper.Current.TogglePaneButtonRectChanged += this.OnViewWrapperTogglePaneButtonRectChanged;
-            this.TitleBar.Margin = new Thickness(ViewWrapper.Current.TogglePaneButtonRect.Right, 0, 0, 0);
+            if (ViewWrapper.Current != null)
+            {
+                ViewWrapper.Current.TogglePaneButtonRectChanged += this.OnViewWrapperTogglePaneButtonRectChanged;
+                this.TitleBar.Margin = new Thickness(ViewWrapper.Current.TogglePaneButtonRect.Right, 0, 0, 0);
+            }
         }
 
         private void OnViewWrapperTogglePaneButtonRectChanged(ViewWrapper sender, Rect e)

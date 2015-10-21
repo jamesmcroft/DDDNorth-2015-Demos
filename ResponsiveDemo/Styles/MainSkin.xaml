@@ -3,10 +3,16 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Color x:Key="AccentColor">#FF2196F3</Color>
+    <Color x:Key="DarkAccentColor">#FF1972B9</Color>
     <SolidColorBrush x:Key="AccentColorBrush" Color="{StaticResource AccentColor}" />
+    <SolidColorBrush x:Key="DarkAccentColorBrush" Color="{StaticResource DarkAccentColor}"/>
 
     <FontFamily x:Key="CustomFont">/Fonts/custom-font.ttf#Pan Pizza</FontFamily>
-    
+
+
+    <ItemsPanelTemplate x:Key="WrappingItemsPanelTemplate">
+        <WrapGrid Orientation="Horizontal" MaximumRowsOrColumns="2" />
+    </ItemsPanelTemplate>
     
     <Style x:Key="SplitViewTogglePaneButtonStyle" TargetType="ToggleButton">
         <Setter Property="FontSize" Value="20" />

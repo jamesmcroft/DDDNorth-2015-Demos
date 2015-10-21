@@ -45,13 +45,18 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
 
         <SplitView x:Name="SplitViewMenu"
                    DisplayMode="Inline"
                    OpenPaneLength="256"
                    IsTabStop="False"
                    PaneBackground="{StaticResource AccentColorBrush}"
-                   RequestedTheme="Dark">
+                   RequestedTheme="Dark" Grid.ColumnSpan="2">
             <SplitView.Pane>
                 <controls:SplitViewNavigationListView x:Name="SplitViewMenuList"
                                           TabIndex="3"
@@ -87,8 +92,16 @@
             </Frame>
         </SplitView>
 
+        <controls:PageHeader Grid.Column="0" Grid.ColumnSpan="2" x:Name="Header" Background="{StaticResource AccentColorBrush}">
+            <controls:PageHeader.HeaderContent>
+                <TextBlock Text="ActivRun" Foreground="#99FFFFFF"  Style="{ThemeResource PageTitleTextBlockStyle}" />
+            </controls:PageHeader.HeaderContent>
+        </controls:PageHeader>
+
         <ToggleButton x:Name="HamburgerButton"
                       TabIndex="1"
+                      Grid.Column="0"
+                      Foreground="#99FFFFFF"
                       Style="{StaticResource SplitViewTogglePaneButtonStyle}"
                       IsChecked="{Binding IsPaneOpen, ElementName=SplitViewMenu, Mode=TwoWay}"
                       Unchecked="OnHamburgerButtonUnchecked"

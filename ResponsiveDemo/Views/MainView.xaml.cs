@@ -9,6 +9,12 @@
 
 namespace ResponsiveDemo.Views
 {
+    using System.Collections.ObjectModel;
+
+    using ResponsiveDemo.Models;
+
+    using Windows.Devices.Geolocation;
+
     /// <summary>
     /// The main page.
     /// </summary>
@@ -17,6 +23,25 @@ namespace ResponsiveDemo.Views
         public MainView()
         {
             this.InitializeComponent();
+
+            this.Statistics = new ObservableCollection<Statistic>();
+            this.AcquireStatistics();
+
+            this.Map.Center = new Geopoint(new BasicGeoposition { Latitude = 54.904485, Longitude = -1.391271 });
+        }
+
+        public ObservableCollection<Statistic> Statistics { get; }
+
+        private void AcquireStatistics()
+        {
+            this.Statistics.Clear();
+
+            this.Statistics.Add(new Statistic { Name = "Calories burned", Value = "541" });
+            this.Statistics.Add(new Statistic { Name = "Average pace", Value = "10' 25\"" });
+            this.Statistics.Add(new Statistic { Name = "Low HR", Value = "67" });
+            this.Statistics.Add(new Statistic { Name = "Peak HR", Value = "191" });
+            this.Statistics.Add(new Statistic { Name = "Ending HR", Value = "186" });
+            this.Statistics.Add(new Statistic { Name = "Cardio benefit", Value = "Stenuous" });
         }
     }
 }
