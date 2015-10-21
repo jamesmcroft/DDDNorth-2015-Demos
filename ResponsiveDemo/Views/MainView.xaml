@@ -15,7 +15,7 @@
                 <TextBlock Text="ActivRun" Foreground="#99FFFFFF" Style="{ThemeResource PageTitleTextBlockStyle}" />
             </controls:PageHeader.HeaderContent>
         </controls:PageHeader>
-        <maps:MapControl x:Name="Map" RelativePanel.Below="Header" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" Height="250" />
+        <maps:MapControl x:Name="Map" MapServiceToken="nnzTXpVsTlys8sMAW4xW~rWRHmFQic2PaeugULbuFng~AmfbjncqxIqVYpFyD97vL5QQT8QlazwsvKb8L_-uADhZholdWoBGuU6eT-fsXQSc" RelativePanel.Below="Header" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" Height="250" />
         
         <Grid x:Name="HeroBar" RequestedTheme="Dark" Background="{StaticResource AccentColorBrush}" RelativePanel.Below="Map" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
             <Grid.ColumnDefinitions>
