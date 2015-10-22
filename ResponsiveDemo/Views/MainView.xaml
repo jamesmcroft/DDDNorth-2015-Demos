@@ -6,35 +6,68 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:maps="using:Windows.UI.Xaml.Controls.Maps"
       xmlns:models="using:ResponsiveDemo.Models"
-    mc:Ignorable="d"
+      xmlns:controls="using:ResponsiveDemo.Controls"
+      mc:Ignorable="d"
     RequestedTheme="Light">
 
     <Page.Resources>
         <ResourceDictionary>
             <DataTemplate x:Key="StatisticItemTemplate" x:DataType="models:Statistic">
                 <Grid Margin="0,0,0,6" HorizontalAlignment="Left">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     
-                    <TextBlock Text="{x:Bind Name}" FontSize="14" Style="{StaticResource LightTextBlockStyle}" />
-                    <TextBlock Grid.Row="1" Text="{x:Bind Value}" FontSize="30" Style="{StaticResource LightTextBlockStyle}" Foreground="{StaticResource AccentColorBrush}" />
+                    <TextBlock Grid.Column="1" Text="{x:Bind Name}" FontSize="14" Style="{StaticResource LightTextBlockStyle}"  />
+                    <TextBlock Grid.Column="1" Grid.Row="1" Text="{x:Bind Value}" FontSize="30" Style="{StaticResource LightTextBlockStyle}" Foreground="{StaticResource AccentColorBrush}"  />
                 </Grid>
             </DataTemplate>
         </ResourceDictionary>
     </Page.Resources>
 
     <RelativePanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="720" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="HeartRate.Visibility" Value="Visible" />
+                        <Setter Target="Map.(RelativePanel.AlignBottomWithPanel)" Value="True" />
+                        <Setter Target="HeroBar.(RelativePanel.RightOf)" Value="Map"/>
+                        <Setter Target="Stats.(RelativePanel.RightOf)" Value="Map"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="Map.(RelativePanel.AlignRightWithPanel)" Value="True" />
+                        <Setter Target="Map.Height" Value="250"/>
+                        <Setter Target="HeroBar.(RelativePanel.Below)" Value="Map" />
+                        <Setter Target="HeroBar.(RelativePanel.AlignLeftWithPanel)" Value="True" />
+                        <Setter Target="Stats.(RelativePanel.AlignLeftWithPanel)" Value="True" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
 
-        <maps:MapControl x:Name="Map" ZoomLevel="15" MapServiceToken="nnzTXpVsTlys8sMAW4xW~rWRHmFQic2PaeugULbuFng~AmfbjncqxIqVYpFyD97vL5QQT8QlazwsvKb8L_-uADhZholdWoBGuU6eT-fsXQSc" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" Height="250" />
 
-        <Grid x:Name="HeroBar" RequestedTheme="Dark" Background="{StaticResource DarkAccentColorBrush}" RelativePanel.Below="Map" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
+        <maps:MapControl x:Name="Map" ZoomLevel="15" MapServiceToken="nnzTXpVsTlys8sMAW4xW~rWRHmFQic2PaeugULbuFng~AmfbjncqxIqVYpFyD97vL5QQT8QlazwsvKb8L_-uADhZholdWoBGuU6eT-fsXQSc" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" />
+
+        <Grid x:Name="HeroBar" RequestedTheme="Dark" Background="{StaticResource DarkAccentColorBrush}"  RelativePanel.AlignRightWithPanel="True">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
             <StackPanel Margin="12,6,24,6" VerticalAlignment="Bottom">
@@ -49,9 +82,9 @@
                 <TextBlock VerticalAlignment="Bottom"  Text="152 avg." FontSize="30" Style="{StaticResource LightTextBlockStyle}" />
             </StackPanel>
 
-            <Image Grid.Column="3" Margin="0,12" Source="../Assets/trophy.png" Width="20" Height="20" VerticalAlignment="Bottom"></Image>
+            <Image Grid.Column="3" HorizontalAlignment="Right" Margin="0,12,12,12" Source="../Assets/trophy.png" Width="20" Height="20" VerticalAlignment="Bottom" />
         </Grid>
 
-        <ListView x:Name="Stats" SelectionMode="None" RelativePanel.Below="HeroBar" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" Margin="0,12,0,0" ItemsSource="{x:Bind Statistics}" ItemTemplate="{StaticResource StatisticItemTemplate}" />
+        <ListView x:Name="Stats" SelectionMode="None" RelativePanel.Below="HeroBar" RelativePanel.AlignBottomWithPanel="True"  RelativePanel.AlignRightWithPanel="True" Margin="0,12,0,0" ItemsSource="{x:Bind Statistics}" ItemTemplate="{StaticResource StatisticItemTemplate}" />
     </RelativePanel>
 </Page>

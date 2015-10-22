@@ -79,7 +79,7 @@
 
             <Frame x:Name="PageFrame"
                    Navigating="OnFrameNavigating"
-                   Navigated="OnFrameNavigated">
+                   Navigated="OnFrameNavigated" Margin="0,48,0,0">
                 <Frame.ContentTransitions>
                     <TransitionCollection>
                         <NavigationThemeTransition>
