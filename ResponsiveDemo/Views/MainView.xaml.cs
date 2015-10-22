@@ -11,14 +11,12 @@ namespace ResponsiveDemo.Views
 {
     using System;
     using System.Collections.ObjectModel;
-    using System.Linq;
 
     using ResponsiveDemo.Models;
 
     using Windows.Devices.Geolocation;
 
     using WinRTXamlToolkit.Controls.DataVisualization.Charting;
-    using WinRTXamlToolkit.IO.Serialization;
 
     /// <summary>
     /// The main page.
@@ -44,10 +42,32 @@ namespace ResponsiveDemo.Views
 
             this.GraphStatistics.Clear();
 
-            for (var i = 0; i < 100; i++)
+            for (var i = 0; i < 45; i++)
             {
-                this.GraphStatistics.Add(
-                    new GraphStatistic { Time = DateTime.Now.AddMinutes(i), Value = rand.Next(80, 170) });
+                var val = 0;
+
+                if (i >= 0 && i < 5)
+                {
+                    val = rand.Next(65, 80);
+                }
+                else if (i >= 5 && i < 15)
+                {
+                    val = rand.Next(75, 100);
+                }
+                else if (i >= 15 && i < 20)
+                {
+                    val = rand.Next(90, 140);
+                }
+                else if (i >= 20 && i < 35)
+                {
+                    val = rand.Next(130, 180);
+                }
+                else if (i >= 35 && i < 45)
+                {
+                    val = rand.Next(80, 140);
+                }
+
+                this.GraphStatistics.Add(new GraphStatistic { Time = DateTime.Now.AddMinutes(i), Value = val });
             }
 
             this.ChartLineSeries.DependentRangeAxis = new LinearAxis
