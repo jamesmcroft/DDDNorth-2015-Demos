@@ -107,6 +107,7 @@
       <DependentUpon>PageHeader.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\SplitViewNavigationListView.cs" />
+    <Compile Include="Models\GraphStatistic.cs" />
     <Compile Include="Models\Statistic.cs" />
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>

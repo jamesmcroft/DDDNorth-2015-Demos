@@ -9,11 +9,16 @@
 
 namespace ResponsiveDemo.Views
 {
+    using System;
     using System.Collections.ObjectModel;
+    using System.Linq;
 
     using ResponsiveDemo.Models;
 
     using Windows.Devices.Geolocation;
+
+    using WinRTXamlToolkit.Controls.DataVisualization.Charting;
+    using WinRTXamlToolkit.IO.Serialization;
 
     /// <summary>
     /// The main page.
@@ -27,10 +32,37 @@ namespace ResponsiveDemo.Views
             this.Statistics = new ObservableCollection<Statistic>();
             this.AcquireStatistics();
 
+            this.GraphStatistics = new ObservableCollection<GraphStatistic>();
+            this.AcquireGraphStatistics();
+
             this.Map.Center = new Geopoint(new BasicGeoposition { Latitude = 54.904485, Longitude = -1.391271 });
         }
 
+        private void AcquireGraphStatistics()
+        {
+            var rand = new Random();
+
+            this.GraphStatistics.Clear();
+
+            for (var i = 0; i < 100; i++)
+            {
+                this.GraphStatistics.Add(
+                    new GraphStatistic { Time = DateTime.Now.AddMinutes(i), Value = rand.Next(80, 170) });
+            }
+
+            this.ChartLineSeries.DependentRangeAxis = new LinearAxis
+            {
+                Minimum = 60,
+                Maximum = 190,
+                Orientation = AxisOrientation.Y,
+                Interval = 20,
+                ShowGridLines = true
+            };
+        }
+
         public ObservableCollection<Statistic> Statistics { get; }
+
+        public ObservableCollection<GraphStatistic> GraphStatistics { get; }
 
         private void AcquireStatistics()
         {
