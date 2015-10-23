@@ -96,10 +96,14 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Common\PageBase.cs" />
+    <Compile Include="Common\PageBaseViewModel.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\MainPageViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelLocator.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -108,6 +112,8 @@
     <None Include="Sandbox_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\photo.png" />
+    <Content Include="Assets\video.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -130,6 +136,27 @@
   <ItemGroup>
     <SDKReference Include="BehaviorsXamlSDKManaged, Version=12.0">
       <Name>Behaviors SDK %28XAML%29</Name>
+    </SDKReference>
+    <SDKReference Include="Microsoft.PlayerFramework.Advertising.Analytics.UWP, Version=3.0.0.1">
+      <Name>Microsoft Player Framework Advertising Analytics Adapter</Name>
+    </SDKReference>
+    <SDKReference Include="Microsoft.PlayerFramework.Xaml.Adaptive.UWP, Version=3.0.0.1">
+      <Name>Microsoft Player Framework Adaptive Streaming Plugin</Name>
+    </SDKReference>
+    <SDKReference Include="Microsoft.PlayerFramework.Xaml.Advertising.UWP, Version=3.0.0.1">
+      <Name>Microsoft Player Framework Advertising Plugin</Name>
+    </SDKReference>
+    <SDKReference Include="Microsoft.PlayerFramework.Xaml.Analytics.UWP, Version=3.0.0.1">
+      <Name>Microsoft Player Framework Analytics Plugin</Name>
+    </SDKReference>
+    <SDKReference Include="Microsoft.PlayerFramework.Xaml.TimedText.UWP, Version=3.0.0.1">
+      <Name>Microsoft Player Framework Timed Text Plugin</Name>
+    </SDKReference>
+    <SDKReference Include="Microsoft.PlayerFramework.Xaml.UWP, Version=3.0.0.1">
+      <Name>Microsoft Player Framework</Name>
+    </SDKReference>
+    <SDKReference Include="Microsoft.PlayerFramework.Xaml.WebVTT.UWP, Version=3.0.0.1">
+      <Name>Microsoft Player Framework WebVTT Plugin</Name>
     </SDKReference>
     <SDKReference Include="WindowsDesktop, Version=10.0.10563.0">
       <Name>Windows Desktop Extensions for the UWP</Name>

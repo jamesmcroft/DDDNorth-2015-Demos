@@ -72,6 +72,12 @@ namespace Sandbox
                 // parameter
                 rootFrame.Navigate(typeof(MainPage), e.Arguments);
             }
+            else
+            {
+                var page = rootFrame.Content as MainPage;
+                page?.OnLaunchedEvent(e.Arguments);
+            }
+
             // Ensure the current window is active
             Window.Current.Activate();
         }
@@ -81,8 +87,10 @@ namespace Sandbox
             JumpList jumpList = await JumpList.LoadCurrentAsync();
             jumpList.Items.Clear();
 
-            JumpListItem item1 = JumpListItem.CreateWithArguments("hello", "Hello world");
-            JumpListItem item2 = JumpListItem.CreateWithArguments("open", "Open");
+            JumpListItem item1 = JumpListItem.CreateWithArguments("photo", "Capture photo");
+            item1.Logo = new Uri("ms-appx:///Assets/photo.png");
+            JumpListItem item2 = JumpListItem.CreateWithArguments("video", "Capture video");
+            item2.Logo = new Uri("ms-appx:///Assets/video.png");
 
             jumpList.Items.Add(item1);
             jumpList.Items.Add(item2);

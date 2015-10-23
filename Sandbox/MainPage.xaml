@@ -1,13 +1,35 @@
-﻿<Page
+﻿<common:PageBase
     x:Class="Sandbox.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Sandbox"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    xmlns:common="using:Sandbox.Common"
+    xmlns:playback="using:Microsoft.PlayerFramework"
+    mc:Ignorable="d"
+    DataContext="{Binding MainPageViewModel, Source={StaticResource Locator}}">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
 
+        <Image Source="{Binding PhotoLocation}" Stretch="UniformToFill" />
+
+        <playback:MediaPlayer 
+            Grid.Row="1"
+            x:Name="MediaPlayer" 
+            IsResolutionIndicatorVisible="True"
+            Source="{Binding VideoLocation}" IsMuted="True" />
     </Grid>
-</Page>
+    
+    <common:PageBase.BottomAppBar>
+        <CommandBar>
+            <AppBarButton Icon="Camera" Label="Photo" Command="{Binding LaunchCameraCommand}" />
+            <AppBarButton Icon="Video" Label="Video"  Command="{Binding LaunchVideoCommand}" />
+        </CommandBar>
+    </common:PageBase.BottomAppBar>
+</common:PageBase>
