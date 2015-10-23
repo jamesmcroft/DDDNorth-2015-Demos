@@ -17,6 +17,10 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Sandbox
 {
+    using System.Threading.Tasks;
+
+    using Windows.UI.StartScreen;
+
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
     /// </summary>
@@ -37,16 +41,8 @@ namespace Sandbox
         /// will be used such as when the application is launched to open a specific file.
         /// </summary>
         /// <param name="e">Details about the launch request and process.</param>
-        protected override void OnLaunched(LaunchActivatedEventArgs e)
+        protected override async void OnLaunched(LaunchActivatedEventArgs e)
         {
-
-#if DEBUG
-            if (System.Diagnostics.Debugger.IsAttached)
-            {
-                this.DebugSettings.EnableFrameRateCounter = true;
-            }
-#endif
-
             Frame rootFrame = Window.Current.Content as Frame;
 
             // Do not repeat app initialization when the Window already has content,
@@ -67,6 +63,8 @@ namespace Sandbox
                 Window.Current.Content = rootFrame;
             }
 
+            await SetupJumpList();
+
             if (rootFrame.Content == null)
             {
                 // When the navigation stack isn't restored navigate to the first page,
@@ -76,6 +74,20 @@ namespace Sandbox
             }
             // Ensure the current window is active
             Window.Current.Activate();
+        }
+
+        private static async Task SetupJumpList()
+        {
+            JumpList jumpList = await JumpList.LoadCurrentAsync();
+            jumpList.Items.Clear();
+
+            JumpListItem item1 = JumpListItem.CreateWithArguments("hello", "Hello world");
+            JumpListItem item2 = JumpListItem.CreateWithArguments("open", "Open");
+
+            jumpList.Items.Add(item1);
+            jumpList.Items.Add(item2);
+ 
+            await jumpList.SaveAsync();
         }
 
         /// <summary>
