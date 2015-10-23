@@ -8,6 +8,13 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <Image Source="Assets/sample1.png" Width="200" Height="200" />
+        
+        <Image Grid.Row="1" Source="Assets/sample2.png" Width="200" Height="200" />
     </Grid>
 </Page>
