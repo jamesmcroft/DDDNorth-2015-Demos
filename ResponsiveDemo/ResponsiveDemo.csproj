@@ -99,7 +99,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Common\Enums\DeviceType.cs" />
     <Compile Include="Common\SplitViewMenuItem.cs" />
+    <Compile Include="Common\XamlExtensions\DeviceTrigger.cs" />
     <Compile Include="Controls\ColumnedGridView.xaml.cs">
       <DependentUpon>ColumnedGridView.xaml</DependentUpon>
     </Compile>

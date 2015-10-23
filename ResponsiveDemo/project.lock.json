@@ -1536,6 +1536,14 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "WindowsStateTriggers/1.0.2": {
+        "compile": {
+          "lib/uap10.0/WindowsStateTriggers.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/WindowsStateTriggers.dll": {}
+        }
+      },
       "WinRTXamlToolkit.Controls.DataVisualization.UWP/1.9.4": {
         "dependencies": {
           "WinRTXamlToolkit.UWP": "[1.9.4, )"
@@ -3188,6 +3196,14 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "WindowsStateTriggers/1.0.2": {
+        "compile": {
+          "lib/uap10.0/WindowsStateTriggers.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/WindowsStateTriggers.dll": {}
+        }
+      },
       "WinRTXamlToolkit.Controls.DataVisualization.UWP/1.9.4": {
         "dependencies": {
           "WinRTXamlToolkit.UWP": "[1.9.4, )"
@@ -4810,6 +4826,14 @@
         },
         "runtime": {
           "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
+        }
+      },
+      "WindowsStateTriggers/1.0.2": {
+        "compile": {
+          "lib/uap10.0/WindowsStateTriggers.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/WindowsStateTriggers.dll": {}
         }
       },
       "WinRTXamlToolkit.Controls.DataVisualization.UWP/1.9.4": {
@@ -6469,6 +6493,14 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "WindowsStateTriggers/1.0.2": {
+        "compile": {
+          "lib/uap10.0/WindowsStateTriggers.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/WindowsStateTriggers.dll": {}
+        }
+      },
       "WinRTXamlToolkit.Controls.DataVisualization.UWP/1.9.4": {
         "dependencies": {
           "WinRTXamlToolkit.UWP": "[1.9.4, )"
@@ -8091,6 +8123,14 @@
         },
         "runtime": {
           "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
+        }
+      },
+      "WindowsStateTriggers/1.0.2": {
+        "compile": {
+          "lib/uap10.0/WindowsStateTriggers.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/WindowsStateTriggers.dll": {}
         }
       },
       "WinRTXamlToolkit.Controls.DataVisualization.UWP/1.9.4": {
@@ -9750,6 +9790,14 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "WindowsStateTriggers/1.0.2": {
+        "compile": {
+          "lib/uap10.0/WindowsStateTriggers.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/WindowsStateTriggers.dll": {}
+        }
+      },
       "WinRTXamlToolkit.Controls.DataVisualization.UWP/1.9.4": {
         "dependencies": {
           "WinRTXamlToolkit.UWP": "[1.9.4, )"
@@ -11372,6 +11420,14 @@
         },
         "runtime": {
           "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
+        }
+      },
+      "WindowsStateTriggers/1.0.2": {
+        "compile": {
+          "lib/uap10.0/WindowsStateTriggers.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/WindowsStateTriggers.dll": {}
         }
       },
       "WinRTXamlToolkit.Controls.DataVisualization.UWP/1.9.4": {
@@ -14752,6 +14808,41 @@
         "System.Xml.XmlSerializer.nuspec"
       ]
     },
+    "WindowsStateTriggers/1.0.2": {
+      "sha512": "p15cFsOKxRrzSxXMZ/yNpPxra3HaGTBttFzjXUiDpEvyo8Ujm3hOcqWUsDa/9rz7HfUcJ4ZOqFREo0cIZojGhQ==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "lib/uap10.0/WindowsStateTriggers.dll",
+        "lib/uap10.0/WindowsStateTriggers.pdb",
+        "lib/uap10.0/WindowsStateTriggers.pri",
+        "lib/uap10.0/WindowsStateTriggers.xml",
+        "lib/uap10.0/WindowsStateTriggers/Properties/WindowsStateTriggers.rd.xml",
+        "package/services/metadata/core-properties/2f267b14e65f42b78af535f2513ee898.psmdcp",
+        "src/CompareStateTrigger.cs",
+        "src/CompositeStateTrigger.cs",
+        "src/DeviceFamilyStateTrigger.cs",
+        "src/EqualsStateTrigger.cs",
+        "src/InputTypeTrigger.cs",
+        "src/IsFalseStateTrigger.cs",
+        "src/IsNullOrEmptyStateTrigger.cs",
+        "src/IsTypePresentStateTrigger.cs",
+        "src/ITriggerValue.cs",
+        "src/NetworkConnectionStateTrigger.cs",
+        "src/NotEqualStateTrigger.cs",
+        "src/obj/Release/TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs",
+        "src/obj/Release/TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs",
+        "src/obj/Release/TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs",
+        "src/OrientationStateTrigger.cs",
+        "src/Properties/AssemblyInfo.cs",
+        "src/RegexStateTrigger.cs",
+        "src/UserHandPreferenceStateTrigger.cs",
+        "src/UserInteractionModeTrigger.cs",
+        "src/WeakEventListener.cs",
+        "WindowsStateTriggers.nuspec"
+      ]
+    },
     "WinRTXamlToolkit.Controls.DataVisualization.UWP/1.9.4": {
       "sha512": "F5SU2xFDNjRCY55BE8p3GzJUZ2A7qSeBHElSkn5JNUioqxnmmGHurkDODojB4aMn6xY/a+nI4xG2NUdhomI7/Q==",
       "type": "Package",
@@ -15180,6 +15271,7 @@
   "projectFileDependencyGroups": {
     "": [
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.0.0",
+      "WindowsStateTriggers >= 1.0.2",
       "WinRTXamlToolkit.Controls.DataVisualization.UWP >= 1.9.4",
       "WinRTXamlToolkit.Controls.Gauge.UWP >= 1.9.4",
       "WinRTXamlToolkit.UWP >= 1.9.4"
