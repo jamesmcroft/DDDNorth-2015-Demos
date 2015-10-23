@@ -23,8 +23,8 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
 
-                    <TextBlock Grid.Column="1" Text="{x:Bind Name}" FontSize="14" Style="{StaticResource LightTextBlockStyle}"  />
-                    <TextBlock Grid.Column="1" Grid.Row="1" Text="{x:Bind Value}" FontSize="30" Style="{StaticResource LightTextBlockStyle}" Foreground="{StaticResource AccentColorBrush}"  />
+                    <TextBlock Grid.Column="1" Text="{x:Bind Name}" Style="{StaticResource SmallLightTextBlockStyle}"  />
+                    <TextBlock Grid.Column="1" Grid.Row="1" Text="{x:Bind Value}" Style="{StaticResource AccentMediumLightTextBlockStyle}" />
                 </Grid>
             </DataTemplate>
         </ResourceDictionary>
@@ -58,9 +58,9 @@
                         <Setter Target="HeroBar.(RelativePanel.AlignLeftWithPanel)" Value="True" />
                         <Setter Target="Stats.(RelativePanel.AlignLeftWithPanel)" Value="True" />
                         <Setter Target="Chart.(RelativePanel.AlignLeftWithPanel)" Value="True" />
-
                     </VisualState.Setters>
                 </VisualState>
+
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
 
@@ -76,15 +76,15 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel Margin="12,6,24,6" VerticalAlignment="Bottom">
-                <TextBlock Text="Latest run" FontSize="14" Style="{StaticResource LightTextBlockStyle}" />
-                <TextBlock Text="5.4 miles" FontSize="30" Style="{StaticResource LightTextBlockStyle}" />
+                <TextBlock Text="Latest run" Style="{StaticResource SmallLightTextBlockStyle}" />
+                <TextBlock Text="5.4 miles" Style="{StaticResource MediumLightTextBlockStyle}" />
             </StackPanel>
 
-            <TextBlock Grid.Column="1" VerticalAlignment="Bottom" Margin="0,6,24,6" Text="0.72h" FontSize="30" Style="{StaticResource LightTextBlockStyle}" />
+            <TextBlock Grid.Column="1" VerticalAlignment="Bottom" Margin="0,6,24,6" Text="0.72h" Style="{StaticResource MediumLightTextBlockStyle}" />
 
             <StackPanel x:Name="HeartRate" Margin="0,6,24,6" Grid.Column="2" Orientation="Horizontal" Visibility="Collapsed">
                 <Image Source="../Assets/heart.png" Width="12" Height="12" VerticalAlignment="Bottom" Margin="0,0,0,7"></Image>
-                <TextBlock VerticalAlignment="Bottom"  Text="152 avg." FontSize="30" Style="{StaticResource LightTextBlockStyle}" />
+                <TextBlock VerticalAlignment="Bottom"  Text="152 avg." Style="{StaticResource MediumLightTextBlockStyle}" />
             </StackPanel>
 
             <Image Grid.Column="3" HorizontalAlignment="Right" Margin="0,12,12,12" Source="../Assets/trophy.png" Width="20" Height="20" VerticalAlignment="Bottom" />
