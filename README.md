@@ -10,3 +10,15 @@ This project covers the following:
 - RelativePanel, a new container for easy responsive layout
 - SplitView, a new control which has the ability to enable easy menu navigation
 - x:Bind, the new binding technique for XAML apps
+
+## Asset demo
+This project covers the following:
+- Asset scaling
+  - Using the x.scale-100.png naming conventions
+  
+## Sandbox demo
+** Prerequisite **
+This demo requires the Windows 10 SDK preview build 10563 installed to run. You can get the information from the  [*Building apps for Windows blog*](http://blogs.windows.com/buildingapps/2015/10/13/windows-10-sdk-preview-build-10563-released/).
+
+This project covers the following:
+- UWP jumplists
